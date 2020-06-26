@@ -80,7 +80,8 @@ class TrainingLog:
             ax.text(7.8, week_number - 0.1, f'{week_mileage} km', weight='bold')
 
         # ticks and labels:
-        weekday_labels = [weekday if weekday != 'MO' else '' for weekday in WEEKDAYS]
+        weekday_labels = [weekday for weekday in WEEKDAYS]
+        ax.set_xticks(range(1,8))
         ax.set_xticklabels(weekday_labels)
         ax.set_yticks(range(self.first_week_number, self.last_week_number + 1))
         weeknumber_labels = [
@@ -92,7 +93,7 @@ class TrainingLog:
         # vertical line separator:
         ax.axvline(7.5, color='black', lw=0.5)
 
-        ax.set_xlim((1.5, 8.))
+        ax.set_xlim((0.0, 8.))
         ax.set_ylim((self.first_week_number - 0.5, self.last_week_number + 0.5))
 
         # get rid of the frame
